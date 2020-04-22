@@ -5,33 +5,21 @@
 #include "headers/complexNum.h"
 
 
+void demo ()
+{
+    ObjectArray my_array;
+    Point my_point (1, 2);
+    ComplexNum my_num (3, -1);
+
+    my_array . add (&my_point);
+    my_array . add (&my_num);
+
+    my_array . display ();
+}
+
 int main ()
 {
-    auto my_point = new Point (1, 2);
-    auto my_num = new ComplexNum (3, -1);
-    auto my_array = new ObjectArray ();
-
-    *my_array >> *my_point >> *my_num >> *my_point;
-
-    my_point -> set_x (0);
-
-    std::cout << *my_array;
-
-    std::cin >> *my_point;
-
-    try
-    {
-        (*my_array)[2] . display ();
-        (*my_array)[8] . display ();
-    }
-    catch (Index_out_of_range &e)
-    {
-        std::cout << e . what ();
-    }
-
-    delete my_array;
-    delete my_num;
-    delete my_point;
+    demo ();
 
     return (0);
 }
