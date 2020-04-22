@@ -16,9 +16,9 @@ $(EXECUTABLE): $(OBJECTS)
 
 clean:
 		@ echo "\033[32;1mCleaning object files\033[0m"
-			@ rm -r sources/*o *o
+			@ rm -r sources/*.o *.o
 
 clean_all:
 		@ echo "\033[32;1mCleaning object files and executable\033[0m"
-			@ rm -r sources/*o *o $(EXECUTABLE)
+			@ rm -r sources/exceptions/*.o sources/*.o *.o $(EXECUTABLE)
 
