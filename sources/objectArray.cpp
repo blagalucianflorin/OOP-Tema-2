@@ -40,7 +40,7 @@ ObjectArray::ObjectArray (const ObjectArray &old_array)
     this -> grows = old_array . get_grows ();
     this -> dimension = old_array . get_dimension ();
     this -> objects = (Object **) malloc ((this -> dimension) * sizeof (void *));
-    for (int i = 0; i < old_array . get_size (); i++)
+    for (unsigned int i = 0; i < old_array . get_size (); i++)
         this -> add (old_array . get (i));
 }
 
@@ -58,7 +58,7 @@ ObjectArray &ObjectArray::operator= (const ObjectArray &old_array)
         this -> grows = old_array . get_grows ();
         this -> dimension = old_array . get_dimension ();
         this -> objects = (Object **) malloc ((this -> dimension) * sizeof (void *));
-        for (int i = 0; i < old_array . get_size (); i++)
+        for (unsigned int i = 0; i < old_array . get_size (); i++)
             this -> add (old_array . get (i));
     }
     return (*this);
@@ -78,7 +78,7 @@ std::ostream &operator<< (std::ostream &out, ObjectArray &my_array)
 
 void ObjectArray::remove_all ()
 {
-    for (int i = 0; i < this -> size; i++)
+    for (unsigned int i = 0; i < this -> size; i++)
         delete (objects[i]);
     free (objects);
     objects = nullptr;
@@ -131,7 +131,7 @@ unsigned int ObjectArray::insert (unsigned int index, Object *new_object) noexce
 
 unsigned int ObjectArray::remove (unsigned int index) noexcept (false)
 {
-    if (index < 0 || index > this -> size)
+    if ((int)index < 0 || index > this -> size)
     {
         throw Index_out_of_range (index, this -> size);
     }
@@ -149,7 +149,7 @@ unsigned int ObjectArray::remove (unsigned int index) noexcept (false)
 
 Object *ObjectArray::get (unsigned int index) const noexcept (false)
 {
-    if (index < 0 || index >= this -> size)
+    if ((int)index < 0 || index >= this -> size)
     {
         throw Index_out_of_range (index, this -> size);
     }
@@ -159,7 +159,7 @@ Object *ObjectArray::get (unsigned int index) const noexcept (false)
 
 void ObjectArray::display ()
 {
-    for (int i = 0; i < size; i++, std::cout << " ")
+    for (unsigned int i = 0; i < size; i++, std::cout << " ")
         objects[i] -> display ();
     std::cout << std::endl;
 }
