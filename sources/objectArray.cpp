@@ -28,11 +28,11 @@ ObjectArray::~ObjectArray ()
 
 ObjectArray::ObjectArray (const ObjectArray &old_array)
 {
-    this -> size = old_array . get_size ();
+    this -> size = 0;
     this -> grows = old_array . get_grows ();
     this -> dimension = old_array . get_dimension ();
     this -> objects = (Object **) malloc ((this -> dimension) * sizeof (void *));
-    for (int i = 0; i < this -> size; i++)
+    for (int i = 0; i < old_array . get_size (); i++)
         this -> add (old_array . get (i));
 }
 
@@ -45,11 +45,11 @@ ObjectArray &ObjectArray::operator= (const ObjectArray &old_array)
 {
     if (this != &old_array)
     {
-        this -> size = old_array . get_size ();
+        this -> size = 0;
         this -> grows = old_array . get_grows ();
         this -> dimension = old_array . get_dimension ();
         this -> objects = (Object **) malloc ((this -> dimension) * sizeof (void *));
-        for (int i = 0; i < this -> size; i++)
+        for (int i = 0; i < old_array . get_size (); i++)
             this -> add (old_array . get (i));
     }
     return (*this);
@@ -72,6 +72,10 @@ void ObjectArray::remove_all ()
     for (int i = 0; i < this -> size; i++)
         delete (objects[i]);
     free (objects);
+    objects = nullptr;
+    while (dimension % grows == 0)
+        dimension /= grows;
+    this -> size = 0;
 }
 
 unsigned int ObjectArray::get_size () const
@@ -96,6 +100,8 @@ unsigned int ObjectArray::add (Object *new_object)
 
 unsigned int ObjectArray::insert (unsigned int index, Object *new_object)
 {
+    if (dimension < 1)
+        dimension = 1;
     if (index >= dimension - 1)
     {
         dimension *= grows;
@@ -115,8 +121,12 @@ unsigned int ObjectArray::remove (unsigned int index) noexcept (false)
     }
     else
     {
+        delete (objects[index]);
         memmove (&objects[index], &objects[index + 1], (size - index) * sizeof (void *));
-        delete objects[--(this -> size)];
+//        delete ((Object*)objects[size - 1]);
+        size--;
+        if (size < dimension / grows)
+            dimension /= grows;
     }
     return (index);
 }

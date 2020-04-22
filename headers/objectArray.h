@@ -20,18 +20,18 @@ private:
     unsigned int dimension;
     Object **objects = nullptr;
 
+    ObjectArray *clone () override;
+
 public:
     explicit ObjectArray (unsigned int size, unsigned int grows, unsigned int dimension);
 
-    explicit ObjectArray (unsigned int grows, unsigned int dimension = 0);
+    explicit ObjectArray (unsigned int grows, unsigned int dimension = 1);
 
     explicit ObjectArray ();
 
     ~ObjectArray () override;
 
     ObjectArray (const ObjectArray &old_array);
-
-    ObjectArray *clone () override;
 
     ObjectArray &operator= (const ObjectArray &old_array);
 
