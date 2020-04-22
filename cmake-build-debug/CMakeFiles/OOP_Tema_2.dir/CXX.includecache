@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lblaga/CLionProjects/OOP-Tema-2/headers/exceptions/index_out_of_range.h
+string
+-
+exception
+-
+
+/home/lblaga/CLionProjects/OOP-Tema-2/headers/object.h
+
+/home/lblaga/CLionProjects/OOP-Tema-2/headers/objectArray.h
+object.h
+/home/lblaga/CLionProjects/OOP-Tema-2/headers/object.h
+string
+-
+iostream
+-
+cstring
+-
+exceptions/index_out_of_range.h
+/home/lblaga/CLionProjects/OOP-Tema-2/headers/exceptions/index_out_of_range.h
+
+/home/lblaga/CLionProjects/OOP-Tema-2/sources/objectArray.cpp
+../headers/objectArray.h
+/home/lblaga/CLionProjects/OOP-Tema-2/headers/objectArray.h
+
