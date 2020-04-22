@@ -25,7 +25,7 @@ private:
     ObjectArray *clone () override;
 
 public:
-    explicit ObjectArray (unsigned int grows, unsigned int dimension = 1);
+    explicit ObjectArray (unsigned int grows, unsigned int dimension = 1)  noexcept (false);
 
     explicit ObjectArray ();
 
@@ -49,9 +49,9 @@ public:
 
     unsigned int get_dimension () const;
 
-    unsigned int add (Object *new_object);
+    unsigned int add (Object *new_object)  noexcept (false);
 
-    unsigned int insert (unsigned int index, Object *new_object);
+    unsigned int insert (unsigned int index, Object *new_object)  noexcept (false);
 
     unsigned int remove (unsigned int index) noexcept (false);
 

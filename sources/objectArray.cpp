@@ -102,12 +102,12 @@ unsigned int ObjectArray::get_dimension () const
     return (this -> dimension);
 }
 
-unsigned int ObjectArray::add (Object *new_object)
+unsigned int ObjectArray::add (Object *new_object) noexcept (false)
 {
     return (this -> insert (this -> size, new_object));
 }
 
-unsigned int ObjectArray::insert (unsigned int index, Object *new_object)
+unsigned int ObjectArray::insert (unsigned int index, Object *new_object) noexcept (false)
 {
     if (new_object != nullptr)
     {

@@ -98,15 +98,32 @@ void demo ()
     std::cout << "my_array . add (my_num1) x 3\n";
     for (int i = 0; i < 3; i++, my_array . add (&my_num1));
     std::cout << "my_array . get_size () = " << my_array . get_size () << "\n\n";
+
     std::cout << "my_array . remove (3)\n";
     my_array . remove (3);
     std::cout << "my_array . get_size () = " << my_array . get_size () << "\n";
     std::cout << "my_array . display ()\n";
     my_array . display ();
-    std::cout << "\n";
 
-    int a = system ("rm buffer.txt");
+    std::cout << "\n";
+    std::cout << "my_array . remove_all ()\n";
+    my_array . remove_all ();
+    std::cout << "my_array . get_size () = " << my_array . get_size () << "\n";
+    std::cout << "my_array . add (my_num1) x 3\n";
+    for (int i = 0; i < 3; i++, my_array . add (&my_num1));
+    std::cout << "my_array . get_size () = " << my_array . get_size () << "\n";
+    std::cout << "my_array . display ()\n";
+    my_array . display ();
+
     in_buffer . close ();
+#ifdef __linux__
+    int a = system ("rm buffer.txt");
+    (void)a;
+#elif defined _WIN32
+    int a = system ("del buffer.txt");
+    (void)a;
+#endif
+
     std::cout << "\n\u001b[31;1m\u001b[1m[Demo-End]\u001b[0m\n";
 }
 
