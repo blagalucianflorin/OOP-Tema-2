@@ -7,14 +7,16 @@
 
 class Object
 {
+private:
+
 public:
     Object () = default;
 
     virtual ~Object () = 0;
 
-    virtual void display () = 0;
-
     virtual Object *clone () = 0;
+
+    virtual void display () = 0;
 };
 
 #endif //OOP_TEMA_2_OBJECT_H

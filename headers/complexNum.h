@@ -13,17 +13,17 @@
 class ComplexNum : public Object
 {
 private:
+    ComplexNum *clone () override;
+
     int real = 0;
     int imaginary = 0;
 
 public:
     explicit ComplexNum (int re = 0, int im = 0);
 
-    virtual ~ComplexNum () override = default;
+    ~ComplexNum () override = default;
 
     ComplexNum (const ComplexNum &old_num);
-
-    ComplexNum *clone () override;
 
     ComplexNum &operator= (const ComplexNum &old_num);
 

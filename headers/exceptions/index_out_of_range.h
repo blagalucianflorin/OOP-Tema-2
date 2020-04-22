@@ -5,8 +5,9 @@
 #ifndef OOP_TEMA_2_INDEX_OUT_OF_RANGE_H
 #define OOP_TEMA_2_INDEX_OUT_OF_RANGE_H
 
-#include <string>
 #include <exception>
+
+#include <string>
 
 
 class Index_out_of_range : public std::exception

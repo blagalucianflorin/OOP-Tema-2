@@ -11,6 +11,8 @@
 #include <iostream>
 #include <cstring>
 #include "exceptions/index_out_of_range.h"
+#include "exceptions/null_object.h"
+#include "exceptions/dimension_too_small.h"
 
 class ObjectArray : public Object
 {
@@ -23,8 +25,6 @@ private:
     ObjectArray *clone () override;
 
 public:
-    explicit ObjectArray (unsigned int size, unsigned int grows, unsigned int dimension);
-
     explicit ObjectArray (unsigned int grows, unsigned int dimension = 1);
 
     explicit ObjectArray ();

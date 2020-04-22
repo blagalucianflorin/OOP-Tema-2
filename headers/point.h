@@ -13,17 +13,17 @@
 class Point : public Object
 {
 private:
+    Point *clone () override;
+
     int x = 0;
     int y = 0;
 
 public:
     explicit Point (int x = 0, int y = 0);
 
-    virtual ~Point () override = default;
+    ~Point () override = default;
 
     Point (const Point &old_point);
-
-    Point *clone () override;
 
     Point &operator= (const Point &old_point);
 

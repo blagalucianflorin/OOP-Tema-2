@@ -4,7 +4,4 @@
 
 #include "../headers/object.h"
 
-Object::~Object ()
-{
-
-}
+Object::~Object () = default;

@@ -6,8 +6,9 @@
 
 Index_out_of_range::Index_out_of_range (unsigned int index, unsigned int size)
 {
-    message = "\nIndex_out_of_range: Tried to access position (" + std::to_string (index) + ") outside array range (0-"\
- + std::to_string (size - 1) + ").\n";
+    unsigned int range_end = size != 0 ? size - 1 : 0;
+    message = "Index_out_of_range: Tried to access position (" + std::to_string (index) + ") outside array range (0-"\
+ + std::to_string (range_end) + ").\n";
 }
 
 const char *Index_out_of_range::what () const noexcept (true)
