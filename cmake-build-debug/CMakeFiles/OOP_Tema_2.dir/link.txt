@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/OOP_Tema_2.dir/main.cpp.o CMakeFiles/OOP_Tema_2.dir/sources/point.cpp.o CMakeFiles/OOP_Tema_2.dir/sources/complexNum.cpp.o CMakeFiles/OOP_Tema_2.dir/sources/objectArray.cpp.o CMakeFiles/OOP_Tema_2.dir/sources/exceptions/index_out_of_range.cpp.o CMakeFiles/OOP_Tema_2.dir/sources/object.cpp.o  -o OOP_Tema_2 
